@@ -1,5 +1,6 @@
 // window.addEventListener("load", init);
 let audioContext = new AudioContext();
+// createPeriodicWaveは配列から音を作成する
 let wave = audioContext.createPeriodicWave(wavetable.real, wavetable.imag);
 
 let attackTime = 0.2;
@@ -33,6 +34,7 @@ window.addEventListener("load", () => {
 
 function playSweep() {
   const osc = audioContext.createOscillator();
+  // oscillatorにwaveをセットすることで鳴らせる
   osc.setPeriodicWave(wave);
   osc.frequency.value = 440;
 
